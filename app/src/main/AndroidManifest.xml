@@ -4,9 +4,15 @@
 
     <application
         android:allowBackup="true"
+<<<<<<< HEAD
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+=======
+        android:icon="@mipmap/joeyv2full_ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/joeyv2full_ic_launcher_round"
+>>>>>>> c0e1697a2e0e02a94a18a0e607ce7b89e331d041
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
