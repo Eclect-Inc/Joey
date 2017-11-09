@@ -20,8 +20,7 @@ class Splash : AppCompatActivity() {
 
           override fun onTick(millisUntilFinished:Long) {
 
-            }
-
+          }
            override fun onFinish() {
                 startActivity(intent)
             }
