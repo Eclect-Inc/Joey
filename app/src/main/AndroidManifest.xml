@@ -4,8 +4,6 @@
 
     <!-- TODO: Action-view Intent -->
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/joeyv2full_ic_launcher"
