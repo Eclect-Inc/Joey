@@ -11,11 +11,10 @@ class Splash : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.AppThemeSplash)
+        setTheme(R.style.AppThemeSimple)
         setContentView(R.layout.activity_splash)
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, Welcome::class.java)
 
-        //kotlin isn't HORRIBLE
        timer = object: CountDownTimer(3000, 1000) {
 
           override fun onTick(millisUntilFinished:Long) {
