@@ -14,9 +14,5 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="sign_up_prompt">
-        <![CDATA[
-    Don\'t have an account?<b>Sign up!</b>
-        ]]>
-    </string>
+    <string name="sign_up_prompt"> Don\'t have an account? </string>
 </resources>
