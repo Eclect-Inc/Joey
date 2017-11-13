@@ -34,7 +34,7 @@
         android:paddingRight="20dp"
         android:paddingTop="10dp"
         app:fb_defaultColor="@color/colorPrimary"
-        app:fb_text="@string/sign_up_prompt"
+        app:fb_text="Don't have an account?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
