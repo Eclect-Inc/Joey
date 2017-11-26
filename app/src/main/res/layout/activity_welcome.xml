@@ -62,6 +62,9 @@
         fancy:fb_radius="30dp"
         fancy:fb_text="Login" />
 
+    <!-- TODO: Add a "Forgot Password?" Button... -->
+
+
     <EditText
         android:id="@+id/editText"
         style="@style/Widget.AppCompat.EditText"
@@ -69,7 +72,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/background_light"
         android:ems="10"
-        android:hint="Sign in with your email "
+        android:hint="@string/sign_in_with_your_email"
         android:inputType="textEmailAddress"
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
@@ -88,7 +91,7 @@
         android:layout_marginTop="4dp"
         android:backgroundTint="@android:color/background_light"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
