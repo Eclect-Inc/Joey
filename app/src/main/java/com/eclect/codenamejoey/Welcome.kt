@@ -1,5 +1,6 @@
 package com.eclect.codenamejoey
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -8,6 +9,7 @@ import android.widget.EditText
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import mehdi.sakout.fancybuttons.FancyButton
 
 
@@ -19,7 +21,7 @@ class Welcome : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppThemeSimple)
         setContentView(R.layout.activity_welcome)
-
+        var database = FirebaseDatabase.getInstance()
         val btnLogin = findViewById<FancyButton>(R.id.btn_login)
         val fieldEmail  = findViewById<EditText>(R.id.editText)
         val fieldPassword = findViewById<EditText>(R.id.editText2)
@@ -27,9 +29,9 @@ class Welcome : AppCompatActivity() {
 
         btnRegistration.setOnClickListener {
 
-            val intent = Registration.newIntent(this)
+            val intent = Intent(this, Registration::class.java)
             startActivity(intent)
-
+            
         }
 
         btnLogin.setOnClickListener { view ->
