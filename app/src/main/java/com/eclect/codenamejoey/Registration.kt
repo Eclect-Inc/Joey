@@ -88,13 +88,15 @@ class Registration : AppCompatActivity() {
 
         val personID = lunch.push().key
 
-        val person= Person(personID, firstName, lastName, email, password)
 
 
         fbAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = fbAuth.currentUser
                 val uid = user!!.uid
+                val person = Person(uid, firstName, lastName, email)
+
+                //shown in db
                 lunch.child(uid).setValue(person).addOnCompleteListener {
                     Toast.makeText(applicationContext, "User created", Toast.LENGTH_LONG)
                 }
