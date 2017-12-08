@@ -9,7 +9,6 @@ import android.widget.EditText
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import mehdi.sakout.fancybuttons.FancyButton
 
 
@@ -21,17 +20,14 @@ class Welcome : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppThemeSimple)
         setContentView(R.layout.activity_welcome)
-        var database = FirebaseDatabase.getInstance()
         val btnLogin = findViewById<FancyButton>(R.id.btn_login)
         val fieldEmail  = findViewById<EditText>(R.id.editText)
         val fieldPassword = findViewById<EditText>(R.id.editText2)
         val btnRegistration = findViewById<FancyButton>(R.id.btnReg)
 
         btnRegistration.setOnClickListener {
-
             val intent = Intent(this, Registration::class.java)
             startActivity(intent)
-            
         }
 
         btnLogin.setOnClickListener { view ->
@@ -39,21 +35,13 @@ class Welcome : AppCompatActivity() {
             val email = fieldEmail.text.toString()
             val password = fieldPassword.text.toString()
 
-
             if (email.isEmpty() || password.isEmpty()){
-
                 showMessage(view, "Please enter both your email and password!")
-
             } else {
-
                 signIn(view, email, password)
-
             }
-
         }
-
     }
-
 
     private fun signIn(view: View, email: String, password: String){
 
@@ -72,7 +60,6 @@ class Welcome : AppCompatActivity() {
 
         } )
     }
-
 
     private fun showMessage(view: View, message: String){
 

@@ -26,7 +26,5 @@ class Splash : AppCompatActivity() {
         }.start()
     }
 
-    // rip redundant semicolons
-
 
 }

@@ -9,5 +9,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppThemeSimple)
         setContentView(R.layout.activity_main)
+
+
+
     }
+
+
+
 }

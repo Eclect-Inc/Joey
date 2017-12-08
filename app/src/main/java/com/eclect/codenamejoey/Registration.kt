@@ -5,16 +5,24 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat.startActivity
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.*
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_registration.*
 import mehdi.sakout.fancybuttons.FancyButton
+import com.google.firebase.auth.FirebaseAuth
+
+
 
 
 class Registration : AppCompatActivity() {
 
+    private val fbAuth = FirebaseAuth.getInstance()
     private lateinit var userFirstName: EditText
     private lateinit var userLastName: EditText
     private lateinit var userEmail: EditText
@@ -38,12 +46,18 @@ class Registration : AppCompatActivity() {
         val btnRegistration = findViewById<FancyButton>(R.id.btnRegister)
 
 
+
         btnRegistration.setOnClickListener {
                 saveCredentials()
         }
 
+
     }
     //@SuppressLint("ShowToast")
+
+
+
+    @SuppressLint("ShowToast")
     private fun saveCredentials(){
         val firstName = etFirstName.text.toString().trim()
         val lastName = etLastName.text.toString().trim()
@@ -76,12 +90,27 @@ class Registration : AppCompatActivity() {
 
         val person= Person(personID, firstName, lastName, email, password)
 
-        lunch.child(personID).setValue(person).addOnCompleteListener {
-            Toast.makeText(applicationContext, "User created", Toast.LENGTH_LONG)
-        }
 
-
+        fbAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val user = fbAuth.currentUser
+                val uid = user!!.uid
+                lunch.child(uid).setValue(person).addOnCompleteListener {
+                    Toast.makeText(applicationContext, "User created", Toast.LENGTH_LONG)
+                }
+                startActivity(Intent(this, MainActivity::class.java))
+                Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()
+            }else {
+                Toast.makeText(this, "Error registering, try again later :(", Toast.LENGTH_LONG).show()
+            }
+        })
     }
+    }
+
+
+
+
+
 
 
 //    companion object {
@@ -92,4 +121,4 @@ class Registration : AppCompatActivity() {
 //        }
 //    }
 
-}
+
