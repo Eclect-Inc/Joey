@@ -26,8 +26,8 @@ class Welcome : AppCompatActivity() {
         val btnRegistration = findViewById<FancyButton>(R.id.btnReg)
 
         btnRegistration.setOnClickListener {
-            val intent = Intent(this, Registration::class.java)
-            startActivity(intent)
+            val Regintent = Intent(this, Registration::class.java)
+            startActivity(Regintent)
         }
 
         btnLogin.setOnClickListener { view ->
@@ -48,14 +48,12 @@ class Welcome : AppCompatActivity() {
         fbAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this,
                 OnCompleteListener<AuthResult> { task ->
             if (task.isSuccessful){
-
-                //TODO: Usher in a NEW activity, the main activity. HOORAY!
-
                 showMessage(view, "Logged In")
-
+                val Mainintent = Intent(this, MainActivity::class.java)
+                startActivity(Mainintent)
             }else {
 
-                showMessage(view, "either your email or password is incorrect!")
+                showMessage(view, "Email or password is incorrect!")
             }
 
         } )
