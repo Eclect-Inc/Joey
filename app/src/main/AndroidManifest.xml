@@ -22,6 +22,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Welcome" />
+        <activity android:name=".Registration">
+        </activity>
+        <activity
+            android:name=".Intro"
+            android:theme="@style/Theme.Intro" />
     </application>
 
 </manifest>
