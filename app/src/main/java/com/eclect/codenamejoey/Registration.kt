@@ -43,9 +43,13 @@ class Registration : AppCompatActivity() {
         val lunch = database.getReference("uM")
         lunch.setValue("Values being set:")
 
+        val btnDriver = findViewById<FancyButton>(R.id.btnDriverReg)
+
+        btnDriver.setOnClickListener {
+            startActivity(Intent(this, DriverRegistration::class.java))
+        }
+
         val btnRegistration = findViewById<FancyButton>(R.id.btnRegister)
-
-
 
         btnRegistration.setOnClickListener {
                 saveCredentials()
