@@ -89,7 +89,7 @@ class Registration : AppCompatActivity() {
 
 
         val userRef = FirebaseDatabase.getInstance().getReference("users")
-        val basicUserRef = userRef.child("basic_user")
+        val genUserRef = userRef.child("basic_user")
 
 
 
@@ -102,9 +102,12 @@ class Registration : AppCompatActivity() {
                 val person = Person(uid, firstName, lastName, email, isDriver)
 
                 //shown in db
-                basicUserRef.child(uid).setValue(person).addOnCompleteListener {
+                genUserRef.child(uid).setValue(person).addOnCompleteListener {
                     Toast.makeText(applicationContext, "User created", Toast.LENGTH_LONG)
                 }
+
+
+
                 startActivity(Intent(this, MainActivity::class.java))
                 Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()
             }else {

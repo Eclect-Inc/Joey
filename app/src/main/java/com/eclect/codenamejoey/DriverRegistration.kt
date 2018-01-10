@@ -74,6 +74,7 @@ class DriverRegistration : AppCompatActivity() {
 
         val userRef = FirebaseDatabase.getInstance().getReference("users")
         val driverRef = userRef.child("drivers")
+        val genUserRef = userRef.child("basic_user")
 
         fbAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -82,11 +83,13 @@ class DriverRegistration : AppCompatActivity() {
                 val uid = user!!.uid
                 val isDriver = "true"
                 val driverUser = uDriver(uid, firstName, lastName, email, phoneNumber, isDriver)
+                val person = Person(uid, firstName, lastName, email, isDriver)
 
                 //shown in db
                 driverRef.child(uid).setValue(driverUser).addOnCompleteListener {
                     Toast.makeText(applicationContext, "User created", Toast.LENGTH_LONG).show()
                 }
+                genUserRef.child(uid).setValue(person)
 
                 startActivity(Intent(this, MainActivity::class.java))
                 Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()
