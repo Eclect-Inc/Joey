@@ -38,10 +38,10 @@ class Registration : AppCompatActivity() {
         userEmail = findViewById(R.id.etEmail)
         userPassword = findViewById(R.id.etPassword)
 
-        val database = FirebaseDatabase.getInstance()
-        //ref
-        val lunch = database.getReference("uM")
-        lunch.setValue("Values being set:")
+//        val database = FirebaseDatabase.getInstance()
+//        //ref
+//        val lunch = database.getReference("uM")
+//        lunch.setValue("Values being set:")
 
         val btnDriver = findViewById<FancyButton>(R.id.btnDriverReg)
 
@@ -88,9 +88,9 @@ class Registration : AppCompatActivity() {
 
 
 
-        val lunch = FirebaseDatabase.getInstance().getReference("persons")
+        val userRef = FirebaseDatabase.getInstance().getReference("users")
+        val basicUserRef = userRef.child("basic_user")
 
-        val personID = lunch.push().key
 
 
 
@@ -98,10 +98,11 @@ class Registration : AppCompatActivity() {
             if (task.isSuccessful) {
                 val user = fbAuth.currentUser
                 val uid = user!!.uid
-                val person = Person(uid, firstName, lastName, email)
+                val isDriver = "false"
+                val person = Person(uid, firstName, lastName, email, isDriver)
 
                 //shown in db
-                lunch.child(uid).setValue(person).addOnCompleteListener {
+                basicUserRef.child(uid).setValue(person).addOnCompleteListener {
                     Toast.makeText(applicationContext, "User created", Toast.LENGTH_LONG)
                 }
                 startActivity(Intent(this, MainActivity::class.java))
