@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Switch
+import com.google.android.gms.maps.model.Dash
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -90,7 +91,7 @@ class Welcome : AppCompatActivity() {
                 OnCompleteListener<AuthResult> { task ->
             if (task.isSuccessful){
                 showMessage(view, "Logged In")
-                val Mainintent = Intent(this, MainActivity::class.java)
+                val Mainintent = Intent(this, Dashboard::class.java)
                 startActivity(Mainintent)
             }else {
 
