@@ -50,7 +50,8 @@ class Welcome : AppCompatActivity() {
             }
 
         }
-        switchUser.setOnCheckedChangeListener { _, isChecked -> run {
+        //isChecked
+        switchUser.setOnCheckedChangeListener { _, _ -> run {
             if (debugUser == false) {
                 debugUser = true
                 Log.d("debugBuddy", "Logging in as Driver")
