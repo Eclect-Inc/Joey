@@ -33,8 +33,7 @@ class DriverRegistration : AppCompatActivity() {
         driverPassword = findViewById(R.id.fieldPassword)
         driverPhone = findViewById(R.id.fieldPhoneNumber)
 
-        val database = FirebaseDatabase.getInstance()
-        val lunch = database.getReference("getref")
+
         val btnRegistration = findViewById<FancyButton>(R.id.btnRegister)
 
         btnRegistration.setOnClickListener {
@@ -98,5 +97,4 @@ class DriverRegistration : AppCompatActivity() {
             }
         })
     }
-
 }
