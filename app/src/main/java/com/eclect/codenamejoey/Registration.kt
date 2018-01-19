@@ -28,6 +28,7 @@ import android.view.View
 import android.R.attr.bitmap
 import android.graphics.Bitmap
 import android.widget.ImageView
+import com.hypertrack.lib.callbacks.HyperTrackCallback
 
 
 class Registration : AppCompatActivity() {
@@ -120,10 +121,7 @@ class Registration : AppCompatActivity() {
 
 
 
-
-
-
-                startActivity(Intent(this, Dashboard::class.java))
+                startActivity(Intent(this, Gate::class.java))
                 Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()
             }else {
                 Toast.makeText(this, "Error registering, try again later :(", Toast.LENGTH_LONG).show()

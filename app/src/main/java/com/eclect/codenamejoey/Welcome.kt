@@ -91,7 +91,7 @@ class Welcome : AppCompatActivity() {
                 OnCompleteListener<AuthResult> { task ->
             if (task.isSuccessful){
                 showMessage(view, "Logged In")
-                val Mainintent = Intent(this, Dashboard::class.java)
+                val Mainintent = Intent(this, Gate::class.java)
                 startActivity(Mainintent)
             }else {
 

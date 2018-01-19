@@ -7,12 +7,6 @@
     tools:context="com.eclect.codenamejoey.Dashboard">
 
 
-        <fragment
-            android:id="@+id/htMapfragment"
-            android:name="com.hypertrack.lib.HyperTrackMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/fragment_map_new" />
 
 
 </android.support.constraint.ConstraintLayout>
