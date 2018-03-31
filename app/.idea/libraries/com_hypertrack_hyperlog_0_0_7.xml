@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.hypertrack:hyperlog-0.0.7">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/hyperlog-0.0.7.aar/21bee463020e4b64c64965b573ab738e/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/hyperlog-0.0.7.aar/21bee463020e4b64c64965b573ab738e/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hypertrack/hyperlog/0.0.7/1202c05f7fa7873245e9a8f47842191cc59c4977/hyperlog-0.0.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
