@@ -32,7 +32,9 @@
         <activity android:name=".Dashboard" />
         <activity android:name=".Gate" />
         <activity android:name=".OrderPackage" />
-        <activity android:name=".SendOff"></activity>
+        <activity android:name=".SendOff" />
+        <activity android:name=".Driving" />
+        <activity android:name=".CurrenTOrder"></activity>
     </application>
 
 </manifest>

@@ -30,7 +30,7 @@ public class Dashboard extends AppCompatActivity {
     private Context context;
     private TextView NameVerify, AddressVerify;
     private EditText Name, Address;
-    private Button btnSubmmit;
+    private Button btnOrder, btnDriving, btnCurrentOrder;
     private String asdf;
 
     //HyperTrackMapAdapter
@@ -42,12 +42,34 @@ public class Dashboard extends AppCompatActivity {
 
 //        EditText Name = (EditText) findViewById(R.id.sandbox);
 //        EditText
+        Button btnOrder = (Button) findViewById(R.id.btnOrderAPackage);
+        Button btnDriving = (Button) findViewById(R.id.btnDriveStuff);
+        Button btnCurrentOrder = (Button) findViewById(R.id.Mileage);
 
 
-        btnSubmmit.setOnClickListener(new View.OnClickListener() {
+
+        btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Your" + "flashdrive is here", Toast.LENGTH_LONG);
+                Intent i = new Intent(getApplicationContext(), OrderPackage.class);
+                startActivity(i);
+
+            }
+        });
+        btnDriving.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Driving.class);
+                startActivity(i);
+
+            }
+        });
+        btnCurrentOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Driving.class);
+                startActivity(i);
+
             }
         });
 

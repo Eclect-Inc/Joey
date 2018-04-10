@@ -11,7 +11,7 @@
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/btnPassengerSeat"
         android:layout_width="156dp"
-        android:layout_height="50dp"
+        android:layout_height="41dp"
         android:layout_marginBottom="175dp"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"

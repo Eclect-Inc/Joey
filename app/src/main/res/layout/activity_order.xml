@@ -27,7 +27,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="What will your object fit in?"
+        android:text="What will your item fit in?"
         android:textColor="@android:color/background_light"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
