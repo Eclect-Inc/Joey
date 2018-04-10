@@ -1,34 +1,16 @@
 package com.eclect.codenamejoey
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.NonNull
-import android.support.v4.content.ContextCompat.startActivity
-import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.*
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_registration.*
 import mehdi.sakout.fancybuttons.FancyButton
 import com.google.firebase.auth.FirebaseAuth
-import com.hypertrack.lib.HyperTrack
-import com.hypertrack.lib.models.SuccessResponse
-import com.hypertrack.lib.models.UserParams
-import android.R.attr.phoneNumber
-import android.R.attr.name
-import android.graphics.BitmapFactory
-import android.media.Image
-import android.view.View
-import android.R.attr.bitmap
-import android.graphics.Bitmap
-import android.widget.ImageView
-import com.hypertrack.lib.callbacks.HyperTrackCallback
 
 
 class Registration : AppCompatActivity() {
@@ -56,7 +38,7 @@ class Registration : AppCompatActivity() {
             startActivity(Intent(this, DriverRegistration::class.java))
         }
 
-        val btnRegistration = findViewById<FancyButton>(R.id.btnRegister)
+        val btnRegistration = findViewById<FancyButton>(R.id.btnOrderAPackage)
 
         btnRegistration.setOnClickListener {
                 saveCredentials()

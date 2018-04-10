@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <!-- TODO: Action-view Intent -->
     <application
         android:allowBackup="true"
@@ -31,7 +30,9 @@
             android:theme="@style/Theme.Intro" />
         <activity android:name=".DriverRegistration" />
         <activity android:name=".Dashboard" />
-        <activity android:name=".Gate"/>
+        <activity android:name=".Gate" />
+        <activity android:name=".OrderPackage" />
+        <activity android:name=".SendOff"></activity>
     </application>
 
 </manifest>

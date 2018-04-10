@@ -6,6 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hypertrack.lib.HyperTrack;
@@ -24,6 +28,10 @@ import java.util.List;
 public class Dashboard extends AppCompatActivity {
 
     private Context context;
+    private TextView NameVerify, AddressVerify;
+    private EditText Name, Address;
+    private Button btnSubmmit;
+    private String asdf;
 
     //HyperTrackMapAdapter
     @Override
@@ -32,6 +40,16 @@ public class Dashboard extends AppCompatActivity {
         setTheme(R.style.AppThemeSimple);
         setContentView(R.layout.activity_dashboard);
 
+//        EditText Name = (EditText) findViewById(R.id.sandbox);
+//        EditText
+
+
+        btnSubmmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Your" + "flashdrive is here", Toast.LENGTH_LONG);
+            }
+        });
 
 //        String placeTitle = ;
 

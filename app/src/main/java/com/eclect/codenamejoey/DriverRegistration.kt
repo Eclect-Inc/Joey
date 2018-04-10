@@ -2,23 +2,14 @@ package com.eclect.codenamejoey
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.NonNull
-import android.support.annotation.Nullable
 import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.*
 import com.google.firebase.auth.FirebaseAuth
 import com.hypertrack.lib.HyperTrack
-import com.hypertrack.lib.callbacks.HyperTrackCallback
-import com.hypertrack.lib.models.ErrorResponse
-import com.hypertrack.lib.models.SuccessResponse
-import com.hypertrack.lib.models.User
-import com.hypertrack.lib.models.UserParams
 import mehdi.sakout.fancybuttons.FancyButton
-import java.sql.Driver
 
 
 class DriverRegistration : AppCompatActivity() {
@@ -48,7 +39,7 @@ class DriverRegistration : AppCompatActivity() {
         driverPhone = findViewById(R.id.fieldPhoneNumber)
 
 
-        val btnRegistration = findViewById<FancyButton>(R.id.btnRegister)
+        val btnRegistration = findViewById<FancyButton>(R.id.btnOrderAPackage)
 
         btnRegistration.setOnClickListener {
             saveCredentials()

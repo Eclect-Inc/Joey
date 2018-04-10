@@ -102,7 +102,7 @@
 
 
     <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnOrderAPackage"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
