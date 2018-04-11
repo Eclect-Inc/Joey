@@ -14,6 +14,7 @@ public class OrderPackage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppThemeSimple);
         setContentView(R.layout.activity_order);
 
 

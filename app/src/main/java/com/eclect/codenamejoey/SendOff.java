@@ -22,14 +22,15 @@ public class SendOff extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppThemeSimple);
         setContentView(R.layout.activity_send_off);
 
         FancyButton submit = findViewById(R.id.btnRequest);
-        TextView tv33 = findViewById(R.id.tv3);
+        TextView tv33 = findViewById(R.id.tv4);
 
         String s = getIntent().getStringExtra("key");
 
-        tv33.setText(s);
+        tv33.setText("Your item can fit in a " + s);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
