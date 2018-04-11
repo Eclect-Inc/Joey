@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="io.hypertrack:smart-scheduler-0.0.11">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/smart-scheduler-0.0.11.aar/824a533543670e9fd735ec2c892148ed/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/smart-scheduler-0.0.11.aar/824a533543670e9fd735ec2c892148ed/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.hypertrack/smart-scheduler/0.0.11/a787d877bcee67b85a86efdb0e6ff09731da5be3/smart-scheduler-0.0.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.hypertrack:android-0.6.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-0.6.1.aar/0737d746b760fd84be28480e81b15a20/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-0.6.1.aar/0737d746b760fd84be28480e81b15a20/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hypertrack/android/0.6.1/f88ba349633efb8d5c8096d122ff2ddc661738c2/android-0.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
