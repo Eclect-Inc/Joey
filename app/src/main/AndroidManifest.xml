@@ -34,7 +34,8 @@
         <activity android:name=".OrderPackage" />
         <activity android:name=".SendOff" />
         <activity android:name=".Driving" />
-        <activity android:name=".CurrenTOrder"></activity>
+        <activity android:name=".CurrenTOrder" />
+        <activity android:name=".TotalSubmit"></activity>
     </application>
 
 </manifest>

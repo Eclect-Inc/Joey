@@ -25,12 +25,14 @@ import com.hypertrack.lib.models.UserParams;
 import java.util.ArrayList;
 import java.util.List;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 public class Dashboard extends AppCompatActivity {
 
     private Context context;
     private TextView NameVerify, AddressVerify;
     private EditText Name, Address;
-    private Button btnOrder, btnDriving, btnCurrentOrder;
+    private FancyButton btnOrder, btnDriving, btnCurrentOrder;
     private String asdf;
 
     //HyperTrackMapAdapter
@@ -40,11 +42,9 @@ public class Dashboard extends AppCompatActivity {
         setTheme(R.style.AppThemeSimple);
         setContentView(R.layout.activity_dashboard);
 
-//        EditText Name = (EditText) findViewById(R.id.sandbox);
-//        EditText
-        Button btnOrder = (Button) findViewById(R.id.btnOrderAPackage);
-        Button btnDriving = (Button) findViewById(R.id.btnDriveStuff);
-        Button btnCurrentOrder = (Button) findViewById(R.id.Mileage);
+        FancyButton btnOrder =  findViewById(R.id.btnOrderAPackage);
+        FancyButton btnDriving = findViewById(R.id.btnDriveStuff);
+        FancyButton btnCurrentOrder = findViewById(R.id.Mileage);
 
 
 
@@ -67,7 +67,7 @@ public class Dashboard extends AppCompatActivity {
         btnCurrentOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Driving.class);
+                Intent i = new Intent(getApplicationContext(), CurrenTOrder.class);
                 startActivity(i);
 
             }
