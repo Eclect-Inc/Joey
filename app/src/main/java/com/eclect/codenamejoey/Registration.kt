@@ -71,7 +71,7 @@ class Registration : AppCompatActivity() {
             return
         }
         if (password.isEmpty()){
-            etPassword.error = "Please enter a password"
+            etPassword.error = "Please enter a password that is atleast 8 characters"
             return
         }
 

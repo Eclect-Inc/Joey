@@ -105,7 +105,7 @@ class DriverRegistration : AppCompatActivity() {
                 intent.putExtra("uid",uid)
                 intent.putExtra("phone",phoneNumber)
 
-                val intent = Intent(this, Gate::class.java)
+                val intent = Intent(this, Dashboard::class.java)
 
                 startActivity(intent)
                 Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()

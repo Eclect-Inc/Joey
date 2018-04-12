@@ -1,6 +1,7 @@
 package com.eclect.codenamejoey;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.hypertrack.lib.HyperTrack;
+import com.hypertrack.lib.callbacks.HyperTrackCallback;
+import com.hypertrack.lib.models.SuccessResponse;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
@@ -38,13 +44,12 @@ public class SendOff extends AppCompatActivity {
                 EditText a = findViewById(R.id.editText3);
                 String ab = a.getText().toString();
 
+
+
+
                 Toast.makeText(getApplicationContext(), "A driver has been requested to pickup your " + ab ,Toast.LENGTH_LONG).show();
 
-
-                Intent i = new Intent(getApplicationContext(), Dashboard.class);
-                startActivity(i);
-
-
+                LatLng sourceLatLngA = new LatLng(35.319726, -80.694639);
 
 
             }
