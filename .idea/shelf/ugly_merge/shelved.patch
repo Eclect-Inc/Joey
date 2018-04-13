@@ -1,0 +1,119 @@
+Index: app/src/main/java/com/eclect/codenamejoey/Registration.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.eclect.codenamejoey\n\nimport android.annotation.SuppressLint\nimport android.content.Context\nimport android.content.Intent\nimport android.support.v7.app.AppCompatActivity\nimport android.os.Bundle\nimport android.support.v4.content.ContextCompat.startActivity\nimport android.util.Log\nimport android.widget.EditText\nimport android.widget.Toast\nimport com.google.android.gms.tasks.OnCompleteListener\nimport com.google.firebase.auth.AuthResult\nimport com.google.firebase.auth.*\nimport com.google.firebase.database.*\nimport kotlinx.android.synthetic.main.activity_registration.*\nimport mehdi.sakout.fancybuttons.FancyButton\nimport com.google.firebase.auth.FirebaseAuth\n\n\n\n\nclass Registration : AppCompatActivity() {\n\n    private val fbAuth = FirebaseAuth.getInstance()\n    private lateinit var userFirstName: EditText\n    private lateinit var userLastName: EditText\n    private lateinit var userEmail: EditText\n    private lateinit var userPassword: EditText\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setTheme(R.style.AppThemeSimple)\n        setContentView(R.layout.activity_registration)\n\n        userFirstName = findViewById(R.id.etFirstName)\n        userLastName= findViewById(R.id.etLastName)\n        userEmail = findViewById(R.id.etEmail)\n        userPassword = findViewById(R.id.etPassword)\n\n        val database = FirebaseDatabase.getInstance()\n        //ref\n        val lunch = database.getReference(\"uM\")\n        lunch.setValue(\"Values being set:\")\n\n        val btnRegistration = findViewById<FancyButton>(R.id.btnRegister)\n\n\n\n        btnRegistration.setOnClickListener {\n                saveCredentials()\n        }\n\n\n    }\n    //@SuppressLint(\"ShowToast\")\n\n\n\n    @SuppressLint(\"ShowToast\")\n    private fun saveCredentials(){\n        val firstName = etFirstName.text.toString().trim()\n        val lastName = etLastName.text.toString().trim()\n        val email = etEmail.text.toString().trim()\n        val password = etPassword.text.toString()\n\n        if (firstName.isEmpty()){\n            etFirstName.error = \"Please enter your first name\"\n            return\n\n        }\n        if (lastName.isEmpty()){\n            etLastName.error = \"Please enter your last name\"\n            return\n        }\n        if (email.isEmpty()){\n            etEmail.error = \"Please enter your email\"\n            return\n        }\n        if (password.isEmpty()){\n            etPassword.error = \"Please enter a password\"\n            return\n        }\n\n\n\n        val lunch = FirebaseDatabase.getInstance().getReference(\"persons\")\n\n        val personID = lunch.push().key\n\n\n\n        fbAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener { task ->\n            if (task.isSuccessful) {\n                val user = fbAuth.currentUser\n                val uid = user!!.uid\n                val person = Person(uid, firstName, lastName, email)\n\n                //shown in db\n                lunch.child(uid).setValue(person).addOnCompleteListener {\n                    Toast.makeText(applicationContext, \"User created\", Toast.LENGTH_LONG)\n                }\n                startActivity(Intent(this, MainActivity::class.java))\n                Toast.makeText(this, \"Successfully registered :)\", Toast.LENGTH_LONG).show()\n            }else {\n                Toast.makeText(this, \"Error registering, try again later :(\", Toast.LENGTH_LONG).show()\n            }\n        })\n    }\n    }\n\n\n\n\n\n\n\n//    companion object {\n//        fun newIntent(context: Context): Intent {\n//            val intent = Intent(context,  Registration::class.java)\n//            return intent\n//\n//        }\n//    }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/eclect/codenamejoey/Registration.kt	(date 1514397294000)
++++ app/src/main/java/com/eclect/codenamejoey/Registration.kt	(revision )
+@@ -20,6 +20,7 @@
+ 
+ 
+ 
++
+ class Registration : AppCompatActivity() {
+ 
+     private val fbAuth = FirebaseAuth.getInstance()
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\n\napply plugin: 'kotlin-android'\n\napply plugin: 'kotlin-android-extensions'\n\n\nandroid {\n    compileSdkVersion 26\n    defaultConfig {\n        applicationId \"com.eclect.codenamejoey\"\n        minSdkVersion 20\n        targetSdkVersion 26\n        versionCode 1\n        versionName \"1.0\"\n        testInstrumentationRunner \"android.support.test.runner.AndroidJUnitRunner\"\n    }\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'\n        }\n    }\n}\nallprojects {\n    repositories {\n        maven { url 'https://jitpack.io' }\n    }\n}\n\ndependencies {\n    implementation fileTree(dir: 'libs', include: ['*.jar'])\n    implementation \"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version\"\n    implementation 'com.android.support:appcompat-v7:26.1.0'\n    implementation 'com.android.support.constraint:constraint-layout:1.0.2'\n    implementation 'com.android.support:design:26.1.0'\n    testImplementation 'junit:junit:4.12'\n    androidTestImplementation 'com.android.support.test:runner:1.0.1'\n    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'\n    compile 'com.github.medyo:fancybuttons:1.8.4'\n    compile 'agency.tango.android:material-intro-screen:0.0.5'\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(date 1514397294000)
++++ app/build.gradle	(revision )
+@@ -34,9 +34,12 @@
+     implementation 'com.android.support:appcompat-v7:26.1.0'
+     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+     implementation 'com.android.support:design:26.1.0'
++    implementation 'com.google.firebase:firebase-auth:11.0.4'
++    implementation 'com.google.firebase:firebase-database:11.0.4'
+     testImplementation 'junit:junit:4.12'
+     androidTestImplementation 'com.android.support.test:runner:1.0.1'
+     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+     compile 'com.github.medyo:fancybuttons:1.8.4'
+     compile 'agency.tango.android:material-intro-screen:0.0.5'
+-}
+\ No newline at end of file
++}
++apply plugin: 'com.google.gms.google-services'
+\ No newline at end of file
+Index: app/src/main/java/com/eclect/codenamejoey/IntroActivity.kt
+===================================================================
+--- app/src/main/java/com/eclect/codenamejoey/IntroActivity.kt	(date 1514397294000)
++++ app/src/main/java/com/eclect/codenamejoey/IntroActivity.kt	(date 1514397294000)
+@@ -1,24 +0,0 @@
+-package com.eclect.codenamejoey
+-
+-import agency.tango.materialintroscreen.MaterialIntroActivity
+-import android.os.Bundle
+-import agency.tango.materialintroscreen.MessageButtonBehaviour
+-import agency.tango.materialintroscreen.SlideFragmentBuilder
+-import android.view.View
+-
+-
+-class IntroActivity : MaterialIntroActivity() {
+-    override fun onCreate(savedInstanceState: Bundle?) {
+-        super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_intro)
+-        addSlide(SlideFragmentBuilder()
+-                .backgroundColor(R.color.FF0FDD6B)
+-                .buttonsColor(R.color.FF0FDD6B)
+-                .image(R.drawable.joeyv3)
+-                .title("Why Joey")
+-                .description("It's like Roadie but better because we're Australian")
+-                .build(),
+-                MessageButtonBehaviour(View.OnClickListener { showMessage("Welcome") }, "Use Joey"))
+-    }
+-
+-}
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.eclect.codenamejoey\">\n\n    <!-- To auto-complete the email text field in the login form with the user's emails -->\n    <uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />\n    <uses-permission android:name=\"android.permission.READ_PROFILE\" />\n    <uses-permission android:name=\"android.permission.READ_CONTACTS\" /> <!-- TODO: Action-view Intent -->\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/joeyv2full_ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/joeyv2full_ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/AppTheme\">\n        <activity android:name=\".MainActivity\" />\n        <activity android:name=\".Splash\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        <activity android:name=\".Welcome\" />\n        <activity\n            android:name=\".Intro\"\n            android:theme=\"@style/Theme.Intro\" />\n        <activity\n            android:name=\".IntroActivity\"\n            android:theme=\"@style/Theme.Intro\" />\n        <activity android:name=\".ViewDatabase\">\n\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(date 1514397294000)
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -14,6 +14,7 @@
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
+         <activity android:name=".MainActivity" />
++        <activity android:name=".Registration" />
+         <activity android:name=".Splash">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+@@ -24,12 +25,8 @@
+         <activity android:name=".Welcome" />
+         <activity
+             android:name=".Intro"
+-            android:theme="@style/Theme.Intro" />
+-        <activity
+-            android:name=".IntroActivity"
+             android:theme="@style/Theme.Intro" />
+         <activity android:name=".ViewDatabase">
+-
+         </activity>
+     </application>
+ 
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\n\nbuildscript {\n    ext.kotlin_version = '1.2.0'\n    repositories {\n        google()\n        jcenter()\n    }\n    dependencies {\n        classpath 'com.android.tools.build:gradle:3.0.1'\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version\"\n\n        // NOTE: Do not place your application dependencies here; they belong\n        // in the individual module build.gradle files\n        classpath 'com.google.gms:google-services:3.1.0'\n    }\n}\n\nallprojects {\n    repositories {\n        google()\n        jcenter()\n    }\n}\n\ntask clean(type: Delete) {\n    delete rootProject.buildDir\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(date 1514397294000)
++++ build.gradle	(revision )
+@@ -1,7 +1,7 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ 
+ buildscript {
+-    ext.kotlin_version = '1.2.0'
++    ext.kotlin_version = '1.2.10'
+     repositories {
+         google()
+         jcenter()

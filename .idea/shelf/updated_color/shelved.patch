@@ -1,0 +1,208 @@
+Index: app/src/main/java/com/eclect/codenamejoey/Welcome.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.eclect.codenamejoey\n\nimport android.graphics.Typeface\nimport android.support.v7.app.AppCompatActivity\nimport android.os.Bundle\nimport android.text.Html\nimport android.text.Spannable\nimport android.text.SpannableString\nimport kotlinx.android.synthetic.main.activity_welcome.*\nimport android.text.SpannableStringBuilder\nimport android.text.style.StyleSpan\n\n\nclass Welcome : AppCompatActivity() {\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setTheme(R.style.AppThemeSimple)\n        setContentView(R.layout.activity_welcome)\n\n//        val prompt = SpannableStringBuilder()\n//        prompt.append(\"Don't have an account?\")\n//        val start = prompt.length\n//        prompt.append(\" Sign up!\")\n//        val boldSpan = StyleSpan(android.graphics.Typeface.BOLD)\n//        prompt.setSpan(StyleSpan(Typeface.BOLD),start, prompt.length, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)\n//\n//\n//\n//\n//        btnReg.setText(prompt)\n    }\n\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/eclect/codenamejoey/Welcome.kt	(date 1510449812000)
++++ app/src/main/java/com/eclect/codenamejoey/Welcome.kt	(revision )
+@@ -3,11 +3,8 @@
+ import android.graphics.Typeface
+ import android.support.v7.app.AppCompatActivity
+ import android.os.Bundle
+-import android.text.Html
+-import android.text.Spannable
+-import android.text.SpannableString
++import android.text.*
+ import kotlinx.android.synthetic.main.activity_welcome.*
+-import android.text.SpannableStringBuilder
+ import android.text.style.StyleSpan
+ 
+ 
+@@ -18,17 +15,17 @@
+         setTheme(R.style.AppThemeSimple)
+         setContentView(R.layout.activity_welcome)
+ 
+-//        val prompt = SpannableStringBuilder()
+-//        prompt.append("Don't have an account?")
+-//        val start = prompt.length
+-//        prompt.append(" Sign up!")
+-//        val boldSpan = StyleSpan(android.graphics.Typeface.BOLD)
+-//        prompt.setSpan(StyleSpan(Typeface.BOLD),start, prompt.length, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
+-//
+-//
+-//
+-//
+-//        btnReg.setText(prompt)
++        var prompt = SpannableStringBuilder()
++        prompt.append("Don't have an account?")
++        var start = prompt.length
++        prompt.append(" Sign up!")
++        prompt.setSpan(StyleSpan(Typeface.BOLD),
++                start,
++                prompt.length,
++                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
++        val thefuckingstring = SpannedString(prompt)
++
++        btnReg.setText(thefuckingstring.toString())
+     }
+ 
+ 
+Index: app/src/main/java/com/eclect/codenamejoey/Register.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/eclect/codenamejoey/Register.kt	(revision )
++++ app/src/main/java/com/eclect/codenamejoey/Register.kt	(revision )
+@@ -0,0 +1,12 @@
++package com.eclect.codenamejoey
++
++import android.support.v7.app.AppCompatActivity
++import android.os.Bundle
++
++class Register : AppCompatActivity() {
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_register)
++    }
++}
+Index: app/src/main/res/layout/activity_splash.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.constraint.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@color/colorPrimary\"\n    tools:context=\"com.eclect.codenamejoey.Splash\"\n    tools:layout_editor_absoluteY=\"81dp\">\n\n    <ImageView\n        android:id=\"@+id/imageView\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"300dp\"\n        android:layout_marginBottom=\"8dp\"\n        android:layout_marginEnd=\"8dp\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginTop=\"8dp\"\n        android:contentDescription=\"Logo for Splash screen\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:srcCompat=\"@drawable/joey\" />\n</android.support.constraint.ConstraintLayout>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_splash.xml	(date 1510449812000)
++++ app/src/main/res/layout/activity_splash.xml	(revision )
+@@ -21,5 +21,5 @@
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:srcCompat="@drawable/joey" />
++        app:srcCompat="@drawable/joeyv3" />
+ </android.support.constraint.ConstraintLayout>
+Index: app/src/main/res/layout/activity_register.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_register.xml	(revision )
++++ app/src/main/res/layout/activity_register.xml	(revision )
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context="com.eclect.codenamejoey.Register">
++
++</android.support.constraint.ConstraintLayout>
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\n\napply plugin: 'kotlin-android'\n\napply plugin: 'kotlin-android-extensions'\n\n\nandroid {\n    compileSdkVersion 26\n    defaultConfig {\n        applicationId \"com.eclect.codenamejoey\"\n        minSdkVersion 20\n        targetSdkVersion 26\n        versionCode 1\n        versionName \"1.0\"\n        testInstrumentationRunner \"android.support.test.runner.AndroidJUnitRunner\"\n    }\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'\n        }\n    }\n}\n\n\ndependencies {\n    implementation fileTree(dir: 'libs', include: ['*.jar'])\n    implementation \"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version\"\n    implementation 'com.android.support:appcompat-v7:26.1.0'\n    implementation 'com.android.support.constraint:constraint-layout:1.0.2'\n    implementation 'com.android.support:design:26.1.0'\n    testImplementation 'junit:junit:4.12'\n    androidTestImplementation 'com.android.support.test:runner:1.0.1'\n    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'\n    compile 'com.github.medyo:fancybuttons:1.8.4'\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(date 1510449812000)
++++ app/build.gradle	(revision )
+@@ -24,6 +24,7 @@
+ }
+ 
+ 
++
+ dependencies {
+     implementation fileTree(dir: 'libs', include: ['*.jar'])
+     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.eclect.codenamejoey\">\n\n    <!-- To auto-complete the email text field in the login form with the user's emails -->\n    <uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />\n    <uses-permission android:name=\"android.permission.READ_PROFILE\" />\n    <uses-permission android:name=\"android.permission.READ_CONTACTS\" /> <!-- TODO: Action-view Intent -->\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/joeyv2full_ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/joeyv2full_ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/AppTheme\">\n        <activity android:name=\".MainActivity\" />\n        <activity android:name=\".Splash\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        <activity android:name=\".Welcome\" />\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(date 1510449812000)
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -5,7 +5,9 @@
+     <!-- To auto-complete the email text field in the login form with the user's emails -->
+     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+     <uses-permission android:name="android.permission.READ_PROFILE" />
+-    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- TODO: Action-view Intent -->
++    <uses-permission android:name="android.permission.READ_CONTACTS" />
++
++    <!-- TODO: Action-view Intent -->
+     <application
+         android:allowBackup="true"
+         android:icon="@mipmap/joeyv2full_ic_launcher"
+@@ -22,6 +24,7 @@
+             </intent-filter>
+         </activity>
+         <activity android:name=".Welcome" />
++        <activity android:name=".Register"></activity>
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_welcome.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.constraint.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:fancy=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/la_con\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@color/colorPrimary\"\n    tools:context=\"com.eclect.codenamejoey.Welcome\"\n    tools:layout_editor_absoluteY=\"81dp\">\n\n    <ImageView\n        android:id=\"@+id/imageView2\"\n        android:layout_width=\"250dp\"\n        android:layout_height=\"180dp\"\n        android:layout_marginEnd=\"8dp\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginTop=\"128dp\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:srcCompat=\"@drawable/joey\" />\n\n    <mehdi.sakout.fancybuttons.FancyButton\n        android:id=\"@+id/btnReg\"\n        android:layout_width=\"300dp\"\n        android:layout_height=\"40dp\"\n        android:layout_marginBottom=\"8dp\"\n        android:layout_marginEnd=\"8dp\"\n        android:layout_marginStart=\"8dp\"\n        android:paddingBottom=\"10dp\"\n        android:paddingLeft=\"20dp\"\n        android:paddingRight=\"20dp\"\n        android:paddingTop=\"10dp\"\n        app:fb_defaultColor=\"@color/colorPrimary\"\n        app:fb_text=\"@string/sign_up_prompt\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        fancy:fb_focusColor=\"#9bd823\"\n        fancy:fb_radius=\"30dp\"\n        fancy:fb_textColor=\"#FFFFFF\" />\n\n    <mehdi.sakout.fancybuttons.FancyButton\n        android:id=\"@+id/btn_login\"\n        android:layout_width=\"300dp\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginEnd=\"8dp\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginTop=\"8dp\"\n        android:paddingBottom=\"10dp\"\n        android:paddingLeft=\"20dp\"\n        android:paddingRight=\"20dp\"\n        android:paddingTop=\"10dp\"\n        app:fb_defaultColor=\"@android:color/background_light\"\n        app:fb_focusColor=\"@color/colorPrimary\"\n        app:fb_textColor=\"@color/colorPrimary\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/editText2\"\n        fancy:fb_radius=\"30dp\"\n        fancy:fb_text=\"Login\" />\n\n    <EditText\n        android:id=\"@+id/editText\"\n        style=\"@style/Widget.AppCompat.EditText\"\n        android:layout_width=\"300dp\"\n        android:layout_height=\"wrap_content\"\n        android:backgroundTint=\"@android:color/background_light\"\n        android:ems=\"10\"\n        android:hint=\"Sign in with your email \"\n        android:inputType=\"textEmailAddress\"\n        android:textColor=\"@android:color/background_light\"\n        android:textColorHint=\"@android:color/background_light\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/imageView2\"\n        tools:layout_conversion_absoluteHeight=\"57dp\"\n        tools:layout_conversion_absoluteWidth=\"300dp\" />\n\n    <EditText\n        android:id=\"@+id/editText2\"\n        android:layout_width=\"300dp\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginEnd=\"8dp\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginTop=\"4dp\"\n        android:backgroundTint=\"@android:color/background_light\"\n        android:ems=\"10\"\n        android:hint=\"Password\"\n        android:inputType=\"textPassword\"\n        android:textColor=\"@android:color/background_light\"\n        android:textColorHint=\"@android:color/background_light\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/editText\"\n        tools:ignore=\"NotSibling\" />\n\n</android.support.constraint.ConstraintLayout>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_welcome.xml	(date 1510449812000)
++++ app/src/main/res/layout/activity_welcome.xml	(revision )
+@@ -20,7 +20,7 @@
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:srcCompat="@drawable/joey" />
++        app:srcCompat="@drawable/joeyv3" />
+ 
+     <mehdi.sakout.fancybuttons.FancyButton
+         android:id="@+id/btnReg"
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n    <color name=\"colorPrimary\">#0fdd6b</color>\n    <color name=\"colorPrimaryDark\">#0FDD6B</color>\n    <color name=\"colorAccent\">#0099cc</color>\n    <color name=\"FF0FDD6B\">#26da76</color>\n</resources>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(date 1510449812000)
++++ app/src/main/res/values/colors.xml	(revision )
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+-    <color name="colorPrimary">#0fdd6b</color>
+-    <color name="colorPrimaryDark">#0FDD6B</color>
++    <color name="colorPrimary">#00CE5B</color>
++    <color name="colorPrimaryDark">#00CE5B</color>
+     <color name="colorAccent">#0099cc</color>
+-    <color name="FF0FDD6B">#26da76</color>
++    <color name="FF0FDD6B">#00CE5B</color>
+ </resources>
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\n\nbuildscript {\n    ext.kotlin_version = '1.1.51'\n    repositories {\n        google()\n        jcenter()\n    }\n    dependencies {\n        classpath 'com.android.tools.build:gradle:3.0.0'\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version\"\n\n        // NOTE: Do not place your application dependencies here; they belong\n        // in the individual module build.gradle files\n    }\n}\n\nallprojects {\n    repositories {\n        google()\n        jcenter()\n    }\n}\n\ntask clean(type: Delete) {\n    delete rootProject.buildDir\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(date 1510449812000)
++++ build.gradle	(revision )
+@@ -7,9 +7,8 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:3.0.0'
++        classpath 'com.android.tools.build:gradle:3.0.1'
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+-
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+     }

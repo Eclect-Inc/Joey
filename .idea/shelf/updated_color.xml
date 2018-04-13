@@ -1,0 +1,9 @@
+<changelist name="updated_color" date="1511665122205" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/updated_color/shelved.patch" />
+  <option name="DESCRIPTION" value="updated color" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable/joeyv3.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/updated_color/joeyv3.png" />
+  </binary>
+</changelist>
